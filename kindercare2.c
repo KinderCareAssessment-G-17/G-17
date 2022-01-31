@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<String.h>
+#include<time.h>
 #include "command.c"
 
 
@@ -41,26 +43,29 @@ int main(){
 				printf("4.CHECKDATES <datefrom><dateto>\t\t\t\t");printf("shows if there is an assignment within a specifc date range\n");
 				printf("5.REQUESTACTIVATION\t\t\t\t\t");printf("used to request for activation by pupil\n\n");
 			//}
-			int command;
-			printf("enter command number: ");
-			scanf("%d",&command);
+			char command[50];
+			printf("enter command : ");
+			scanf("%s",&command);
 			
-			switch(command){
-				case 1 : viewALL(command);
-				break;
-				case 2: checkstatus(command);
-				break;
-				case 3: viewAssignment(command);
-				break;
-				case 4: checkDates(command);
-				break;
-				case 5: requestActivation(command);
-				break;
-				default: printf("invalid command");
-				goto COM;
-				
-				
+			
+			if(strcmp(command,"VIEWALL")==0){
+				viewALL(command);
+			}		
+			else if(strcmp(command,"CHECKSTATUS")==0){
+				checkstatus(command);
 			}
+			else if(strcmp(command,"VIEWASSIGNMENT")==0){
+				viewAssignment(command);
+			}
+			else if(strcmp(command,"CHECKDATES")==0){
+				checkDates(command);
+			}else if(strcmp(command,"REQUESTACTIVATION")==0){
+				requestActivation(command);
+			}else{
+				printf("invalid command entered");
+				goto COM;
+			}
+			
 			
 			
 return 0;

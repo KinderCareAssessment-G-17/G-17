@@ -1,4 +1,9 @@
 #include<stdio.h>
+#include<time.h>
+int i,j,k;
+int finalscore;
+time_t starttime,endtime,timetaken=0;
+
 void enterT(char t[7][5]){
    printf(" _____ _____ _____ _____ _____\n");
    printf("|  %c  |  %c  |  %c  |  %c  |  %c  |\n",t[0][0],t[0][1],t[0][2],t[0][3],t[0][4]);
@@ -133,7 +138,7 @@ void N(){
     };
     char ans[7][4];
    
-             
+             starttime=time(NULL);
              int i,j;
              for(i=0;i<7;i++){
              	for(j=0;j<4;j++){
@@ -141,17 +146,19 @@ void N(){
 				 }
 				 printf("\n");
 			 }
+			 
 			 for( i=0;i<7;++i)
-   
-
-   {
+{
+	
 for( j=0;j<4;j++){
 
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
 }
+
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -165,7 +172,9 @@ for(i=0;i<7;i++){
 }
 
 }
-printf(" the final score of the student is: %d",score);
+printf(" the score of the student is: %d\n\n",score);
+finalscore +=score;
+timetaken+=(endtime-starttime);
 
 } 
 void O(){
@@ -225,7 +234,8 @@ for(i=0;i<7;i++){
 }
 
 }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 }
 void p(){
 	char N[7][4]={
@@ -283,7 +293,8 @@ for(i=0;i<7;i++){
 }
 
 }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 
 
 
@@ -344,7 +355,8 @@ for(i=0;i<7;i++){
 }
 
 }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 
 	
 	
@@ -406,7 +418,8 @@ for(i=0;i<7;i++){
 }
 
 }
-printf(" the final score of the student is: %d",score);
+printf(" the score of the student is: %\n\n",score);
+finalscore +=score;
 }
 
 void F(){
@@ -467,7 +480,8 @@ for(i=0;i<7;i++){
 }
 
 }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 
 }
 
@@ -512,7 +526,8 @@ void B(){
 		if(ans2[c][d]==m2[c][d])
           score++ ;  }
           }
-printf(" the final score of the student is: %d",score);
+printf(" the score of the student is: %d\n\n",score);
+finalscore +=score;
 }
 
 void D(){
@@ -554,7 +569,8 @@ void D(){
 		if(ans3[e][f]==m3[e][f])
           score++ ;  }
           }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 }
 
 void E(){
@@ -597,7 +613,8 @@ void E(){
 		if(ans4[g][h]==m4[g][h])
           score++ ;  }
           }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 	
 }
 
@@ -639,7 +656,8 @@ for(a=0;a<7;a++){
 		if(ans1[a][b]==m1[a][b])
           score++ ;  }
           }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 }
 
 void G(){
@@ -699,7 +717,8 @@ for(i=0;i<7;i++){
           score++ ;
 }
 }
-printf(" the final score of the student is: %d",score);
+printf(" the  score of the student is: %d\n\n",score);
+finalscore +=score;
 		}
 
 void H(){
@@ -761,7 +780,8 @@ for(i=0;i<7;i++){
 					}
 				}
 
-		printf(" the final score of the student is: %d",score);
+		printf(" the  score of the student is: %d\n\n",score);
+		finalscore +=score;
 }
 	
 void I(){
@@ -823,7 +843,8 @@ for(i=0;i<7;i++){
 				}
 		}
 		
-	printf(" the final score of the student is: %d",score);
+	printf(" the  score of the student is: %d\n\n",score);
+	finalscore +=score;
 }
 	
 void J(){
@@ -883,7 +904,8 @@ for(i=0;i<7;i++){
           score++ ;
 					}
 			}
-		printf(" the final score of the student is: %d",score);
+		printf(" the  score of the student is: %\n\n",score);
+		finalscore +=score;
 }
 
 void K(){
@@ -944,7 +966,8 @@ for(i=0;i<7;i++){
           score++ ;
 				}
 		}
-	printf(" the final score of the student is: %d",score);
+	printf(" the  score of the student is: %d\n\n",score);
+	finalscore +=score;
 }
 
 void L(){
@@ -1004,7 +1027,8 @@ for(i=0;i<7;i++){
           score++ ;
 				}
 		}
-	printf(" the final score of the student is: %d",score);
+	printf(" the  score of the student is: %d\n\n",score);
+	finalscore +=score;
 }
  void S(){
  	 char S[7][4] = {
@@ -1052,8 +1076,8 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);		
- 	
+	printf("The  score of the student is: %d\n\n", score);		
+ 	finalscore+=score;
  }
  
  void T(){
@@ -1102,7 +1126,8 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);
+	printf("The  score of the student is: %d\n\n", score);
+	finalscore +=score;
  	
  }
  
@@ -1150,7 +1175,8 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);		
+	printf("The  score of the student is: %d\n\n", score);	
+	finalscore +=score;	
  }
   void W(){
   	char W[3][7] = {
@@ -1171,7 +1197,7 @@ for(i=0;i<7;i++){
 
     char ans[3][7];
 
-    int i,j;
+    
     for(i = 0; i < 3; i++){
         for(j = 0; j < 7; j++){
             printf(" %c", W[i][j]);
@@ -1182,6 +1208,8 @@ for(i=0;i<7;i++){
         for(j = 0; j < 7; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+            
+            
         }
     }
     enterW(ans);
@@ -1194,8 +1222,8 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);		
-    
+	printf("The  score of the student is: %d\n\n", score);		
+    finalscore +=score;
     
   }
   
@@ -1242,7 +1270,8 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);	
+	printf("The  score of the student is: %d\n\n", score);
+	finalscore +=score;	
   }
   
   void Y(){
@@ -1291,7 +1320,8 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);
+	printf("The  score of the student is: %d\n\n", score);
+	finalscore +=score;
   }
   
   void Z(){
@@ -1337,5 +1367,6 @@ for(i=0;i<7;i++){
             
         }
     }
-	printf("The final score of the student is: %d", score);		
+	printf("The  score of the student is: %d\n\n", score);	
+	finalscore +=score;	
   }

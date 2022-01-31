@@ -16,9 +16,10 @@ char Lx[7][4]={
     {'*','*','*','*'}};
 
  int mark = 0;
-    for(int row=0;row<7;row++){
+ int row,col;
+    for( row=0;row<7;row++){
 
-            for(int col=0;col<4;col++){
+            for( col=0;col<4;col++){
 
                     if(Lx[row][col]==Ly[row][col]){
                         mark++;
@@ -34,9 +35,9 @@ char Lx[7][4]={
 
 int row,col;
 int attempt(){
-for(int row=0;row<7;row++){
+for( row=0;row<7;row++){
 
-    for(int col=0;col<4;col++){
+    for(col=0;col<4;col++){
             scanf("%c", &Ly[row][col]);
             }
     }
