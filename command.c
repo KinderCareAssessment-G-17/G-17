@@ -11,7 +11,7 @@ void viewALL(char k[]){
 	/*char letter;
 		printf("enter a letter:");
 	scanf("%s",&letter);*/
-	char letter[]="N";
+	char letter[]="NB";
 	/*
 	char assignment[2][9]={
 	
