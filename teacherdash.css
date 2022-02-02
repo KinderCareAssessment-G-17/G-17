@@ -116,9 +116,6 @@ body.active .wrapper .section{
     display: flex;
     justify-content: center;
     align-items: center;
-    /*font-size: 10em;*/
-    text-transform: uppercase;
-    font-weight: 700;
     color: rgb(5, 68, 104);
 }
 section:nth-child(odd){

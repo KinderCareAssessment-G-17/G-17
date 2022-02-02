@@ -15,7 +15,7 @@
             <div class="sidebar">
             <!--profile image & text-->
                 <div class="profile">
-                    <img src="IMG-20201103-WA0013.jpg" alt="profile_picture">
+                    <img src="IMG-20200912-WA0012.jpg" alt="profile_picture">
                     <h3>Kyeyune Peter</h3>
                     <p>Teacher</p>
                 </div>
@@ -32,19 +32,19 @@
                 <li>
                     <a href="#dash">
                         <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">Register</span>
+                        <span class="item">Register Pupils</span>
                     </a>
                 </li>
         
             
                 <li>
-                    <a href="#results">
+                    <a href="#assignments">
                         <span class="icon"><i class="fas fa-database"></i></span>
                         <span class="item">Assignments</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#complaint">
+                    <a href="#activation">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
                         <span class="item">Activation Requests</span>
                     </a>
@@ -70,9 +70,13 @@
         </div>
      
         <section id="home" class="section1">Home</section>
-        <section id="dash" class="section2">Register</section>
-        <section id="results" class="section3">Assignments</section>
-        <section id="complaint" class="section4">Activation Requests</section>
+        <section id="dash" class="section2">
+            <?php include("pupilRegistrationpage.php")?>
+        </section>
+        <section id="assignments" class="section3">
+            
+        </section>
+        <section id="activation" class="section4">Activation Requests</section>
 
         <script>
             var ham = document.querySelector(".ham");
