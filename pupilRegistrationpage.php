@@ -2,11 +2,10 @@
 <html>
 <head>
 <title>Pupil Registration</title>
-<link rel="stylesheet" type="text/css" href="teacherdash.css"/>
+<link rel="stylesheet" type="text/css" href=""/>
 </head>
 
 <body style= "text-align:center;">
-<h1>Pupil details form:</h1>
 
  
 <?php
@@ -17,10 +16,16 @@ if(isset($_SESSION['status']))
 }
 ?>
 
-<h4>You can register your pupils here</h4><br/>
+<!--<h4>You can register your pupils here</h4><br/>-->
 
-<fieldset style="background-color:#c8d6e5">
-<form action="pupilRegistration.php" method="POST">
+
+
+<form action="pupilRegistrationp.php" method="POST">
+<img src="logo.png" width="90" height="90" class="logo1">
+<h2 class="header" >KINDERCARE<br> <h2>PUPIL REGISTRATION</h2></h2>
+<fieldset style="background-color:plum">
+
+<h1>Pupil  details  <br>form:</h1> 
 
 <br/><br/><b><label>First name</label></b><br>
 <input type="text" name="pupilfName" maxlength="20" style="margin-bottom:10px;"/><br>
@@ -39,8 +44,9 @@ if(isset($_SESSION['status']))
 
 
 <button type="submit" name="register">Register</button><br><br>
-</form>
+
 </fieldset>
+</form>
 <br><br>
 <!--<?php include('deleteMark.php');?>-->
 

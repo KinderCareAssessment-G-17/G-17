@@ -1,70 +1,80 @@
-<?php
+<?php 
 
-include "connectdb.php";
+if(isset($_POST['upload'])){
+$assNo= $_POST['AssignmentNumber'];
+$char= $_POST['NumberOfChar'];
+$given=$_POST['GivenChar'];
+$start= $_POST['Start'];
+$end= $_POST['End'];
 
-
-if (isset($_POST['send'])){
-  //get values from form
-  $question1 = implode(",", $_POST["answer1"]);
-  $date = $_POST["date"];
-  $start = $_POST["start"];
-  $end = $_POST["end"];
-  $sql = "INSERT INTO assignments(da_te, start_time, end_time, characters)
-  VALUES('$date','$start','$end','$question1')";
-  if (mysqli_query($dbc, $sql)){
-    echo "<br>Assignment sent successfully";
-  } else {echo "Error: ". $sql ."
-  ".mysqli_error($dbc);}
+$connect=new mysqli('localhost', 'root', '', 'kindercare');
+if (!$connect){
+    echo "Problem connecting the database.";
 }
-  
 
+$qry1="INSERT INTO assignment (AssignmentNumber,NumberOfChar,GivenChar,Starttime,Endtime) VALUES('$assNo', '$char', 
+'$given', '$start', '$end')";
+if(mysqli_query($connect, $qry1)){
+    header("location:teacherdash.php");
+}else{
+    echo "Problem while inserting data";
+}
+
+}
 
 ?>
+
+
+
+
+<!DOCTYPE html>
 <html>
-    <body>
-        <p>ASSIGNMENT DETAILS</p>
-  <form action="assignment.php" method="post">
-    Date: <input type="date" name="date"><br><br>
-    Start_time:<input type="time" name="start" value="start-time"><br><br>
-    End_time:<input type="time" name="end" value="end_time"><br><br>
+<head>
+<title>upload assignment</title>
+<link rel="stylesheet" type="text/css" href=""/>
 
-    Enter characters:
-    A<input type="checkbox" value="A" name="answer1[]">
-    B<input type="checkbox" value="B" name="answer1[]">
-    C<input type="checkbox" value="C" name="answer1[]">
-    D<input type="checkbox" value="D" name="answer1[]">
-    E<input type="checkbox" value="E" name="answer1[]">
-    F<input type="checkbox" value="F" name="answer1[]">
-    G<input type="checkbox" value="G" name="answer1[]">
-    H<input type="checkbox" value="H" name="answer1[]">
-    I<input type="checkbox" value="I" name="answer1[]">
-    J<input type="checkbox" value="J" name="answer1[]">
-    K<input type="checkbox" value="K" name="answer1[]">
-    L<input type="checkbox" value="L" name="answer1[]">
-    M<input type="checkbox" value="M" name="answer1[]">
-    N<input type="checkbox" value="N" name="answer1[]">
-    O<input type="checkbox" value="O" name="answer1[]">
-    P<input type="checkbox" value="P" name="answer1[]">
-    Q<input type="checkbox" value="Q" name="answer1[]">
-    R<input type="checkbox" value="R" name="answer1[]">
-    S<input type="checkbox" value="S" name="answer1[]">
-    T<input type="checkbox" value="T" name="answer1[]">
-    U<input type="checkbox" value="U" name="answer1[]">
-    V<input type="checkbox" value="V" name="answer1[]">
-    W<input type="checkbox" value="W" name="answer1[]">
-    X<input type="checkbox" value="X" name="answer1[]">
-    Y<input type="checkbox" value="Y" name="answer1[]">
-    Z<input type="checkbox" value="Z" name="answer1[]"><br><br>
-    <input type="submit" name="send" value="Send">
+
+</head>
+
+<body style= "text-align:center;">
+
+
+ 
+<?php
+if(isset($_SESSION['status']))
+{
+    echo "<h5>".$_SESSION['status']."</h5>";
+    unset($_SESSION['status']);
+}
+?>
 
 
 
+<form action="assignment.php" method="POST">
+<img src="logo.png" width="90" height="90" class="logo1">
+<h2 class="header" >KINDERCARE<br> <h2>ASSIGNMENTS UPLOAD PAGE:</h2></h2>
+<fieldset style="background-color:plum">
+<p>Assignments upload:</p>
+<br/><br/><b><label>Assignment number</label></b><br>
+<input type="text" name="AssignmentNumber" maxlength="20" style="margin-bottom:10px;"/><br>
+
+<b><label>Number of Characters</label><br></b>
+<input type="text" name="NumberOfChar" maxlength="20" style="margin-bottom:10px;"/><br>
+
+<b><label>Given Characters</label><br></b>
+<input type="text" name="GivenChar" maxlength="20"style="margin-bottom:10px;"/><br>
+
+<b><label>Start Time</label><br></b>
+<input type="datetime-local" name="Start" maxlength="20"style="margin-bottom:10px;"/><br>
+
+<b><label>End Time</label><br></b>
+<input type="datetime-local" name="End" maxlength="20" style="margin-bottom:10px;"/><br>
 
 
-  </form>
+<button type="submit" name="upload">UPLOAD</button><br><br>
+</fieldset>
+</form>
+<br><br>
 
-
-
-    </body>
-    </html>
-
+</body>
+</html>

@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    color:black;
 }
 
 body{
@@ -12,7 +13,7 @@ body{
 }
 
 .wrapper .sidebar{
-    background: rgb(5, 68, 104);
+    background: plum;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,19 +37,19 @@ body{
 }
 
 .wrapper .sidebar .profile h3{
-    color: #ffffff;
+    color: #030000;
     margin: 10px 0 5px;
 }
 
 .wrapper .sidebar .profile p{
-    color: rgb(206, 240, 253);
+    color: rgb(1, 6, 8);
     font-size: 14px;
 }
 
 .wrapper .sidebar ul li a{
     display: block;
     padding: 13px 30px;
-    border-bottom: 1px solid #10558d;
+    border-bottom: 1px solid paleturquoise;
     color: rgb(241, 237, 237);
     font-size: 16px;
     position: relative;
@@ -62,15 +63,15 @@ body{
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
-    color:  rgb(5, 68, 104);
+    color:  plum;
 
     background:white;
-    border-right: 2px solid rgb(5, 68, 104);
+    border-right: 2px solid paleturquoise;
 }
 
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon{
-    color:  rgb(5, 68, 104);
+    color:  plum;
 }
 
 .wrapper .sidebar ul li a:hover:before,
@@ -85,7 +86,7 @@ body{
 }
 
 .wrapper .section .top_navbar{
-    background:  rgb(5, 68, 104);
+    background:  plum;
     height: 50px;
     display: flex;
     align-items: center;
@@ -111,13 +112,16 @@ body.active .wrapper .section{
     width: 100%;
 }
 
-.section1, .section2, .section3, .section4 {
+.section1, .section2, .section3, .section4,.section5 {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(5, 68, 104);
+    color: plumss;
 }
 section:nth-child(odd){
     background: #c8d6e5;
+}
+.item{
+    color:rgb(22, 2, 22);
 }
