@@ -25,7 +25,7 @@ int main(){
 	char Stdusercode;
 	
 	
-	printf("======================KINDERCARE ASSESSEMENT SYSTEM============================ \n");
+	printf("          KINDERCARE ASSESSEMENT SYSTEM \n");
 	
 		printf("STUDENT AUTHENTICATION\n");
 		HERE:

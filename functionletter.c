@@ -93,7 +93,7 @@ void enter( char k[7][4])
 
 
 
- 
+
 
 
    printf(" _____ _____ _____ _____\n");
@@ -112,7 +112,7 @@ void enter( char k[7][4])
    printf("|  %c  |  %c  |  %c  |  %c  |\n",k[6][0],k[6][1],k[6][2],k[6][3]);
    printf("|_____|_____|_____|_____|\n");
 
-}	
+}
 
 
 
@@ -126,7 +126,7 @@ void N(){
 		{'*',' ',' ','*' },
 		{'*',' ',' ','*' },
 			};
-	
+
 			 char m[7][4]={
    	    {'1','0','0','1' },
 		{'1','0','0','1' },
@@ -137,7 +137,7 @@ void N(){
 		{'1','0','0','1' }
     };
     char ans[7][4];
-   
+
              starttime=time(NULL);
              int i,j;
              for(i=0;i<7;i++){
@@ -146,10 +146,10 @@ void N(){
 				 }
 				 printf("\n");
 			 }
-			 
+
 			 for( i=0;i<7;++i)
 {
-	
+
 for( j=0;j<4;j++){
 
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
@@ -166,9 +166,9 @@ int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
 		if(ans[i][j]==m[i][j])
-          score++ ;  
-		
-		
+          score++ ;
+
+
 }
 
 }
@@ -176,7 +176,7 @@ printf(" the score of the student is: %d\n\n",score);
 finalscore +=score;
 timetaken+=(endtime-starttime);
 
-} 
+}
 void O(){
 		char N[7][4]={
 		{' ','*','*',' ' },
@@ -187,7 +187,7 @@ void O(){
 		{'*',' ',' ','*' },
 		{' ','*','*',' ' },
 			};
-			
+
 					 char m[7][4]={
    	    {'0','1','1','0' },
 		{'1','0','0','1' },
@@ -198,12 +198,12 @@ void O(){
 		{'0','1','1','0' }
     };
     char ans[7][4];
-	
-   
-             
+
+    starttime=time(NULL);
+
              int i,j;
-            
-			 
+
+
              for(i=0;i<7;i++){
              	for(j=0;j<4;j++){
              		printf(" %c", N[i][j]);
@@ -211,7 +211,7 @@ void O(){
 				 printf("\n");
 			 }
 			 for( i=0;i<7;++i)
-   
+
 
    {
 for( j=0;j<4;j++){
@@ -221,6 +221,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -228,14 +229,15 @@ int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
 		if(ans[i][j]==m[i][j])
-          score++ ;  
-		
-		
+          score++ ;
+
+
 }
 
 }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 }
 void p(){
 	char N[7][4]={
@@ -247,7 +249,7 @@ void p(){
 		{'*',' ',' ',' ' },
 		{'*',' ',' ',' ' },
 			};
-	
+
    char m[7][4]={
    	    {'1','1','1','0' },
 		{'1','0','0','1' },
@@ -258,7 +260,9 @@ void p(){
 		{'1','0','0','0' }
     };
     char ans[7][4];
-             
+    starttime=time(NULL);
+
+
              int i,j;
              for(i=0;i<7;i++){
              	for(j=0;j<4;j++){
@@ -266,9 +270,9 @@ void p(){
 				 }
 				 printf("\n");
 			 }
-		
+
    for( i=0;i<7;++i)
-   
+
 
    {
 for( j=0;j<4;j++){
@@ -277,9 +281,10 @@ for( j=0;j<4;j++){
    scanf("%s",&ans[i][j]);
 
 }
-   
+
 
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -287,18 +292,19 @@ int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
 		if(ans[i][j]==m[i][j])
-          score++ ;  
-		
-		
+          score++ ;
+
+
 }
 
 }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 
 
 
-	
+
 }
 void Q(){
 	char N[7][4]={
@@ -310,7 +316,7 @@ void Q(){
 		{' ','*','*',' ' },
 		{' ',' ',' ','*' },
 			};
-			
+
 			 char m[7][4]={
    	    {'0','1','1','0' },
 		{'1','0','0','1' },
@@ -321,9 +327,9 @@ void Q(){
 		{'0','0','0','1' }
     };
     char ans[7][4];
-	
-   
-             
+    starttime=time(NULL);
+
+
              int i,j;
              for(i=0;i<7;i++){
              	for(j=0;j<4;j++){
@@ -332,7 +338,7 @@ void Q(){
 				 printf("\n");
 			 }
 			 for( i=0;i<7;++i)
-   
+
 
    {
 for( j=0;j<4;j++){
@@ -342,6 +348,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -349,17 +356,17 @@ int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
 		if(ans[i][j]==m[i][j])
-          score++ ;  
-		
-		
+          score++ ;
+
+
 }
 
 }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 
-	
-	
+
 }
 void U(){
 		char N[7][4]={
@@ -371,7 +378,7 @@ void U(){
 		{'*',' ',' ','*' },
 		{' ','*','*',' ' },
 			};
-			
+
 					 char m[7][4]={
    	    {'1','0','0','1' },
 		{'1','0','0','1' },
@@ -382,12 +389,12 @@ void U(){
 		{'0','1','1','0' }
     };
     char ans[7][4];
-	
-   
-             
+    starttime=time(NULL);
+
+
              int i,j;
-            
-			 
+
+
              for(i=0;i<7;i++){
              	for(j=0;j<4;j++){
              		printf(" %c", N[i][j]);
@@ -395,7 +402,7 @@ void U(){
 				 printf("\n");
 			 }
 			 for( i=0;i<7;++i)
-   
+
 
    {
 for( j=0;j<4;j++){
@@ -405,6 +412,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -412,18 +420,19 @@ int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
 		if(ans[i][j]==m[i][j])
-          score++ ;  
-		
-		
+          score++ ;
+
+
 }
 
 }
 printf(" the score of the student is: %\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 }
 
 void F(){
-	
+
 		char N[7][4]={
 		{'*','*','*','*' },
 		{'*',' ',' ',' ' },
@@ -433,7 +442,7 @@ void F(){
 		{'*',' ',' ',' ' },
 		{'*',' ',' ',' ' },
 			};
-	
+
 			 char m[7][4]={
    	    {'1','1','1','1' },
 		{'1','0','0','0' },
@@ -444,12 +453,12 @@ void F(){
 		{'1','0','0','0' }
     };
     char ans[7][4];
-	
-   
-             
+    starttime=time(NULL);
+
+
              int i,j;
-            
-			 
+
+
              for(i=0;i<7;i++){
              	for(j=0;j<4;j++){
              		printf(" %c", N[i][j]);
@@ -457,7 +466,7 @@ void F(){
 				 printf("\n");
 			 }
 			 for( i=0;i<7;++i)
-   
+
 
    {
 for( j=0;j<4;j++){
@@ -467,6 +476,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -474,15 +484,15 @@ int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
 		if(ans[i][j]==m[i][j])
-          score++ ;  
-		
-		
+          score++ ;
+
+
 }
 
 }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
-
+timetaken+=(endtime-starttime);
 }
 
 void B(){
@@ -508,7 +518,7 @@ void B(){
 		{'1','1','1','0' }
     };
     char ans2[7][4];
-
+    starttime=time(NULL);
              for(c=0;c<7;c++){
              	for(d=0;d<4;d++){
              		printf(" %c", B[c][d]);
@@ -518,8 +528,9 @@ void B(){
               for( c=0;c<7;++c){
               for( d=0;d<4;d++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",c,d);
-        scanf("%s",&ans2[c][d]);}}
-        
+        scanf("%s",&ans2[c][d]);}
+        }
+        endtime=time(NULL);
         enter( ans2);
     for(c=0;c<7;c++){
 	for(d=0;d<4;d++){
@@ -528,6 +539,7 @@ void B(){
           }
 printf(" the score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 }
 
 void D(){
@@ -552,6 +564,7 @@ void D(){
 		{'1','1','0','0' }
     };
     char ans3[7][4];
+    starttime=time(NULL);
              for(e=0;e<7;e++){
              	for(f=0;f<4;f++){
              		printf(" %c", D[e][f]);
@@ -561,8 +574,9 @@ void D(){
 			 for( e=0;e<7;++e){
              for( f=0;f<4;f++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",e,f);
-        scanf("%s",&ans3[e][f]);}}
-        
+        scanf("%s",&ans3[e][f]);}
+        }
+        endtime=time(NULL);
         enter( ans3);
         for(e=0;e<7;e++){
 	for(f=0;f<4;f++){
@@ -571,6 +585,7 @@ void D(){
           }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 }
 
 void E(){
@@ -595,7 +610,7 @@ void E(){
 		{'1','1','1','1' }
     };
     char ans4[7][4];
-
+    starttime=time(NULL);
              for(g=0;g<7;g++){
              for(h=0;h<4;h++){
              		printf(" %c", E[g][h]);
@@ -605,8 +620,9 @@ void E(){
 			 for( g=0;g<7;++g){
              for( h=0;h<4;h++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",g,h);
-        scanf("%s",&ans4[g][h]);}}
-        
+        scanf("%s",&ans4[g][h]);}
+        }
+        endtime=time(NULL);
         enter( ans4);
         for(g=0;g<7;g++){
 	    for(h=0;h<4;h++){
@@ -615,7 +631,7 @@ void E(){
           }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
-	
+timetaken+=(endtime-starttime);
 }
 
 void C(){
@@ -640,6 +656,7 @@ void C(){
 		{'0','0','1','1' }
     };
     char ans1[7][4];
+    starttime=time(NULL);
            for(a=0;a<7;++a){
             for( b=0;b<4;b++){
             printf(" %c", C[a][b]);
@@ -649,7 +666,9 @@ void C(){
              for( a=0;a<7;++a){
              for( b=0;b<4;b++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",a,b);
-        scanf("%s",&ans1[a][b]);}}
+        scanf("%s",&ans1[a][b]);}
+        }
+        endtime=time(NULL);
         enter( ans1);
 for(a=0;a<7;a++){
 	for(b=0;b<4;b++){
@@ -658,6 +677,7 @@ for(a=0;a<7;a++){
           }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken+=(endtime-starttime);
 }
 
 void G(){
@@ -687,7 +707,7 @@ void G(){
 		{'0','0','1','1' }
     };
     char ans[7][4];
-
+    starttime=time(NULL);
 
 
              int i,j;
@@ -708,6 +728,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 int score=0;
@@ -719,6 +740,7 @@ for(i=0;i<7;i++){
 }
 printf(" the  score of the student is: %d\n\n",score);
 finalscore +=score;
+timetaken +=(endtime-starttime);
 		}
 
 void H(){
@@ -748,7 +770,7 @@ void H(){
 		{'1','0','0','1' }
     };
     char ans[7][4];
-
+    starttime=time(NULL);
 
 
              int i,j;
@@ -769,6 +791,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -782,8 +805,9 @@ for(i=0;i<7;i++){
 
 		printf(" the  score of the student is: %d\n\n",score);
 		finalscore +=score;
+		timetaken+=(endtime-starttime);
 }
-	
+
 void I(){
 	char N[7][4]={
 		{'*','*','*','*' },
@@ -811,7 +835,7 @@ void I(){
 		{'1','1','1','1' }
     };
     char ans[7][4];
-
+    starttime=time(NULL);
 
 
              int i,j;
@@ -832,6 +856,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 
@@ -842,11 +867,12 @@ for(i=0;i<7;i++){
           score++ ;
 				}
 		}
-		
+
 	printf(" the  score of the student is: %d\n\n",score);
 	finalscore +=score;
+	timetaken+=(endtime-starttime);
 }
-	
+
 void J(){
 	char N[7][4]={
 		 {'*','*','*','*' },
@@ -874,7 +900,7 @@ void J(){
 		{'0','1','1','0' }
     };
     char ans[7][4];
-
+    starttime=time(NULL);
 
 
              int i,j;
@@ -895,6 +921,7 @@ for( j=0;j<4;j++){
 
 }
    }
+   endtime=time(NULL);
   enter( ans);
 
 int score=0;
@@ -906,6 +933,7 @@ for(i=0;i<7;i++){
 			}
 		printf(" the  score of the student is: %\n\n",score);
 		finalscore +=score;
+		timetaken+=(endtime-starttime);
 }
 
 void K(){
@@ -935,7 +963,7 @@ void K(){
 		{'1','0','0','1' }
     };
     char ans[7][4];
-
+    starttime=time(NULL);
 
 
              int i,j;
@@ -956,6 +984,7 @@ for( j=0;j<4;j++){
 
 }
    }
+  endtime=time(NULL);
   enter( ans);
 
 
@@ -968,6 +997,7 @@ for(i=0;i<7;i++){
 		}
 	printf(" the  score of the student is: %d\n\n",score);
 	finalscore +=score;
+	timetaken+=(endtime-starttime);
 }
 
 void L(){
@@ -997,7 +1027,7 @@ void L(){
 		{'1','1','1','1' }
     };
     char ans[7][4];
-
+    starttime=time(NULL);
 
 
              int i,j;
@@ -1018,6 +1048,7 @@ for( j=0;j<4;j++){
 
 }
    }
+  endtime=time(NULL);
   enter( ans);
 
 int score=0;
@@ -1029,6 +1060,7 @@ for(i=0;i<7;i++){
 		}
 	printf(" the  score of the student is: %d\n\n",score);
 	finalscore +=score;
+	timetaken+=(endtime-starttime);
 }
  void S(){
  	 char S[7][4] = {
@@ -1052,7 +1084,7 @@ for(i=0;i<7;i++){
     };
 
     char ans[7][4];
-
+    starttime=time(NULL);
     int i,j;
     for(i = 0; i < 7; i++){
         for(j = 0; j < 4; j++){
@@ -1066,6 +1098,7 @@ for(i=0;i<7;i++){
             scanf("%s", &ans[i][j]);
         }
     }
+    endtime=time(NULL);
     enter(ans);
 
     int score = 0;
@@ -1073,13 +1106,14 @@ for(i=0;i<7;i++){
         for(j = 0;j < 4; j++){
             if(ans[i][j] == letter_S[i][j])
                 score++;
-            
+
         }
     }
-	printf("The  score of the student is: %d\n\n", score);		
+	printf("The  score of the student is: %d\n\n", score);
  	finalscore+=score;
+ 	timetaken+=(endtime-starttime);
  }
- 
+
  void T(){
  	char T[7][5] = {
         {'*','*','*','*','*' },
@@ -1102,7 +1136,7 @@ for(i=0;i<7;i++){
     };
 
     char ans[7][5];
-
+    starttime=time(NULL);
     int i,j;
     for(i = 0; i < 7; i++){
         for(j = 0; j < 5; j++){
@@ -1116,6 +1150,7 @@ for(i=0;i<7;i++){
             scanf("%s", &ans[i][j]);
         }
     }
+    endtime=time(NULL);
     enterT(ans);
 
     int score = 0;
@@ -1123,23 +1158,23 @@ for(i=0;i<7;i++){
         for(j = 0;j < 5; j++){
             if(ans[i][j] == letter_T[i][j])
                 score++;
-            
+
         }
     }
 	printf("The  score of the student is: %d\n\n", score);
 	finalscore +=score;
- 	
+    timetaken+=(endtime-starttime);
  }
- 
- 
- 
+
+
+
  void V(){
  	char V[4][7] = {
         {'*',' ',' ',' ',' ',' ','*' },
 		{' ','*',' ',' ',' ','*',' ' },
 		{' ',' ','*',' ','*',' ',' ' },
 		{' ',' ',' ','*',' ',' ',' ' },
-		
+
 			};
 
     char letter_V[4][7]={
@@ -1147,11 +1182,11 @@ for(i=0;i<7;i++){
 		{'0','1','0','0','0','1','0' },
 		{'0','0','1','0','1','0','0' },
 		{'0','0','0','1','0','0','0' },
-	
+
     };
 
     char ans[4][7];
-
+    starttime=time(NULL);
     int i,j;
     for(i = 0; i < 4; i++){
         for(j = 0; j < 7; j++){
@@ -1165,6 +1200,7 @@ for(i=0;i<7;i++){
             scanf("%s", &ans[i][j]);
         }
     }
+    endtime=time(NULL);
     enterV(ans);
 
     int score = 0;
@@ -1172,11 +1208,12 @@ for(i=0;i<7;i++){
         for(j = 0;j < 7; j++){
             if(ans[i][j] == letter_V[i][j])
                 score++;
-            
+
         }
     }
-	printf("The  score of the student is: %d\n\n", score);	
-	finalscore +=score;	
+	printf("The  score of the student is: %d\n\n", score);
+	finalscore +=score;
+	timetaken+=(endtime-starttime);
  }
   void W(){
   	char W[3][7] = {
@@ -1184,7 +1221,7 @@ for(i=0;i<7;i++){
 		{' ','*',' ','*',' ','*',' ' },
 		{' ',' ','*',' ','*',' ',' ' }
 
-		
+
 			};
 
     char letter_W[3][7]={
@@ -1192,12 +1229,12 @@ for(i=0;i<7;i++){
 		{'0','1','0','1','0','1','0' },
 		{'0','0','1','0','1','0','0' }
 
-	
+
     };
 
     char ans[3][7];
+    starttime=time(NULL);
 
-    
     for(i = 0; i < 3; i++){
         for(j = 0; j < 7; j++){
             printf(" %c", W[i][j]);
@@ -1208,25 +1245,26 @@ for(i=0;i<7;i++){
         for(j = 0; j < 7; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
-            
-            
+
+
         }
     }
+    endtime=time(NULL);
     enterW(ans);
-    
+
     int score = 0;
     for(i = 0; i < 3; i++){
         for(j = 0;j < 7; j++){
             if(ans[i][j] == letter_W[i][j])
                 score++;
-            
+
         }
     }
-	printf("The  score of the student is: %d\n\n", score);		
+	printf("The  score of the student is: %d\n\n", score);
     finalscore +=score;
-    
+    timetaken+=(endtime-starttime);
   }
-  
+
   void X(){
   	    char X[5][5] = {
         {'*',' ',' ',' ','*' },
@@ -1246,7 +1284,7 @@ for(i=0;i<7;i++){
     };
 
     char ans[5][5];
-
+    starttime=time(NULL);
     int i,j;
     for(i = 0; i < 5; i++){
         for(j = 0; j < 5; j++){
@@ -1260,6 +1298,7 @@ for(i=0;i<7;i++){
             scanf("%s", &ans[i][j]);
         }
     }
+    endtime=time(NULL);
     enterX(ans);
 
     int score = 0;
@@ -1267,13 +1306,14 @@ for(i=0;i<7;i++){
         for(j = 0;j < 5; j++){
             if(ans[i][j] == letter_X[i][j])
                 score++;
-            
+
         }
     }
 	printf("The  score of the student is: %d\n\n", score);
-	finalscore +=score;	
+	finalscore +=score;
+	timetaken+=(endtime-starttime);
   }
-  
+
   void Y(){
   	char Y[7][5] = {
         {'*',' ',' ',' ','*' },
@@ -1296,7 +1336,7 @@ for(i=0;i<7;i++){
     };
 
     char ans[7][5];
-
+    starttime=time(NULL);
     int i,j;
     for(i = 0; i < 7; i++){
         for(j = 0; j < 5; j++){
@@ -1310,6 +1350,7 @@ for(i=0;i<7;i++){
             scanf("%s", &ans[i][j]);
         }
     }
+    endtime=time(NULL);
     enterY(ans);
 
     int score = 0;
@@ -1317,13 +1358,14 @@ for(i=0;i<7;i++){
         for(j = 0;j < 5; j++){
             if(ans[i][j] == letter_Y[i][j])
                 score++;
-            
+
         }
     }
 	printf("The  score of the student is: %d\n\n", score);
 	finalscore +=score;
+	timetaken+=(endtime-starttime);
   }
-  
+
   void Z(){
   	char Z[5][5] = {
         {'*','*','*','*','*' },
@@ -1343,7 +1385,7 @@ for(i=0;i<7;i++){
     };
 
     char ans[5][5];
-
+    starttime=time(NULL);
     int i,j;
     for(i = 0; i < 5; i++){
         for(j = 0; j < 5; j++){
@@ -1357,6 +1399,7 @@ for(i=0;i<7;i++){
             scanf("%s", &ans[i][j]);
         }
     }
+    endtime=time(NULL);
     enterZ(ans);
 
     int score = 0;
@@ -1364,9 +1407,10 @@ for(i=0;i<7;i++){
         for(j = 0;j < 5; j++){
             if(ans[i][j] == letter_Z[i][j])
                 score++;
-            
+
         }
     }
-	printf("The  score of the student is: %d\n\n", score);	
-	finalscore +=score;	
+	printf("The  score of the student is: %d\n\n", score);
+	finalscore +=score;
+	timetaken+=(endtime-starttime);
   }

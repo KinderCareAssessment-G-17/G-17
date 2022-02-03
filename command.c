@@ -1,75 +1,74 @@
 #include<stdio.h>
 #include<time.h>
 #include "functionletter.c"
-/*
-let the user secelct assignment
-select where assignment code
-*/
 
-void viewALL(char k[]){
+
+     MYSQL *conn;
+     MYSQL_RES *res;
+     MYSQL_ROW row;
+     char startDate[20];
+     char endDate[20];
+     int totalAssignments;
+     char q[1000];
+     char r[1000];
+     char b[1000];
+
+char Stdusercode[200];
+
+void attemptAssignment(char k[]){
+    char query_str[] = {"SELECT activationstatus FROM student WHERE activationstatus='activated' and userCode = '%s'   "};
+		sprintf(b, query_str,Stdusercode);
+		if (mysql_query(conn, b)) {
+
+			 finish_with_error(conn);
+
+
+		}
+		res=mysql_store_result(conn);
+
+		if((row=mysql_fetch_row(res))>0){
 	int i,j,g,l;
-	/*char letter;
-		printf("enter a letter:");
-	scanf("%s",&letter);*/
-	char letter[]="NB";
-	/*
-	char assignment[2][9]={
-	
-	{'1','V','S','F','E','O','P','Z','W' },
-	{'2','W','Z','B','C','D','Q','X','Y' }};
-	printf("AN0\tL1\tL2\tL3\tL4\tL5\tL6\tL7\tL8\n");
-	for(i=0;i<2;i++){
-	for(j=0;j<9;j++){
-	printf("%c\t",assignment[i][j]);
-	}
-	printf("\n");}
-	
-	
-	
-	
+	char assNo[200];
+	printf("enter assignment number: ");
+	scanf("%s",assNo);
+	printf("\n\n");
+int length=0;
+	char letter[length];
+				char query_string[] = {"SELECT assignment FROM assignment WHERE  assignmentNo='%s' AND teacherNo=(SELECT teacherNo FROM student where usercode='%s')   "};
+		sprintf(q, query_string,assNo,Stdusercode);
+		if (mysql_query(conn, q)) {
 
-char code;
-ass:
-printf("\n\nenter assignment code to attempt: ");
-scanf("%s",&code);
+			 finish_with_error(conn);
 
 
-	
-		if(code == assignment[0][0]){
-			
-				letter[0]=assignment[0][1];
-				letter[1]=assignment[0][2];
-				letter[2]=assignment[0][3];
-				letter[3]=assignment[0][4];
-				letter[4]=assignment[0][5];
-				letter[5]=assignment[0][6];
-				letter[6]=assignment[0][7];
-				letter[7]=assignment[0][8];
-			}else if(assignment[1][0]== code){
-				letter[0]=assignment[1][1];
-				letter[1]=assignment[1][2];
-				letter[2]=assignment[1][3];
-				letter[3]=assignment[1][4];
-				letter[4]=assignment[1][5];
-				letter[5]=assignment[1][6];
-				letter[6]=assignment[1][7];
-				letter[7]=assignment[1][8];
-				
-				
-			}else{
-				printf("invalid assignment code entered");
-				goto ass;
-				
-			}
-			 
-	
-	
-//time_t starttime,endtime;*/
-	int length=strlen(letter);
+		}
+		res=mysql_store_result(conn);
+
+		if(res==NULL){
+
+            finish_with_error(conn);
+		}
+
+		int num_fields=mysql_num_fields(res);
+           while((row=mysql_fetch_row(res))){
+
+            strcpy(letter,row[0]);
+            }
+            printf("\n");
+
+
+
+
+
+
+
+
+length=strlen(letter);
+
 	for(i=0;i<length;i++){
-		
-	// starttime =time(NULL);
-	
+
+
+
 switch(letter[i]){
 	case 'P'   :p();
 	             break;
@@ -79,7 +78,7 @@ switch(letter[i]){
 	             break;
 	case 'I'   :I();
 	             break;
-	
+
 	case 'J'   :J();
 	             break;
 	case 'K'   :K();
@@ -90,23 +89,23 @@ switch(letter[i]){
 	             break;
 	case 'O'   :O();
 	             break;
-	             
+
 	 case 'N'   :N();
 	             break;
 	case 'U'   :U();
-	             break;	
-				 
+	             break;
+
 	case 'F'   :F();
-	             break;	
-				 
+	             break;
+
 	case 'B'   :B();
 	             break;
 	case 'D'   :D();
-	             break;	
+	             break;
 	case 'E'   :E();
-	             break;	
+	             break;
 	case 'C'   :C();
-	             break;	
+	             break;
 	case 'Z'   :Z();
 	             break;
 	case 'W'   :W();
@@ -114,33 +113,150 @@ switch(letter[i]){
 	case 'V'   :V();
 	             break;
 	case 'T'   :T();
-	             break;	
+	             break;
 	case 'S'   :S();
-	
+
 	             break;
 	case 'X'   :X();
 	             break;
 	case 'Y'   :Y();
-	             break;			 			 		 			 			 	
-				 		 		 		 		 			 			 		             
+	             break;
+
 	default: printf("invalid letter");}
-	// endtime=time(NULL); 
+	// endtime=time(NULL);
 }
 
 printf("total time taken:%ld\n",timetaken );
-printf("the final score is:%d",finalscore);	
+printf("the final score is:%d",finalscore);
+
+char w[100];
+			char query_stg[] = {"UPDATE assignment SET status='attempted'  WHERE  assignmentNo='%s'"};
+		sprintf(w, query_stg,assNo);
+		if (mysql_query(conn, w)) {
+
+			 finish_with_error(conn);
+
+
+		}
+
+		char x[100];
+			char query_st[] = {"UPDATE assignment SET score= %d  WHERE  assignmentNo='%s'"};
+		sprintf(x, query_st,finalscore,assNo);
+		if (mysql_query(conn, x)) {
+
+			 finish_with_error(conn);
+
+
+		}
+
+
+}
+
+
+else{
+    printf(" your deactivated, send activation request");
+}
+}
+void viewactivationstatus(char k[]){
+    char q[100];
+			char query_string[] = {"SELECT activationstatus FROM student WHERE  usercode='%s'  "};
+		sprintf(q, query_string,Stdusercode);
+		if (mysql_query(conn, q)) {
+
+			 finish_with_error(conn);
+
+
+		}
+		res=mysql_store_result(conn);
+
+		if(res==NULL){
+
+            finish_with_error(conn);
+		}
+
+		int num_fields=mysql_num_fields(res);
+           while((row=mysql_fetch_row(res))){
+            for(int i=0; i<num_fields; i++){
+                printf("%s\t", row[i]?row[i]: "NULL");
+            }
+            printf("\n");
+        }
+
+
 }
 void checkstatus(char k[]){
-	
+       /*  char q[100];
+			char query_string[] = {"SELECT assignmentNo,uploaddate,status FROM assignment WHERE  teacherNo=(SELECT teacherNo FROM student where usercode='%s')  "};
+		sprintf(q, query_string,Stdusercode);
+		if (mysql_query(conn, q)) {
+
+			 finish_with_error(conn);
+
+
+		}
+		res=mysql_store_result(conn);
+
+		if(res==NULL){
+
+            finish_with_error(conn);
+		}
+
+		int num_fields=mysql_num_fields(res);
+           while((row=mysql_fetch_row(res))){
+            for(int i=0; i<num_fields; i++){
+                printf("%s\t", row[i]?row[i]: "NULL");
+            }
+            printf("\n");
+        }*/
+
+
+
 }
-void viewAssignment(char k[]){
-	
+void viewALL(char k[]){
+     char q[100];
+			char query_string[] = {"SELECT assignmentNo,uploaddate,status FROM assignment WHERE  teacherNo=(SELECT teacherNo FROM student where usercode='%s')  "};
+		sprintf(q, query_string,Stdusercode);
+		if (mysql_query(conn, q)) {
+
+			 finish_with_error(conn);
+
+
+		}
+		res=mysql_store_result(conn);
+
+		if(res==NULL){
+
+            finish_with_error(conn);
+		}
+
+		int num_fields=mysql_num_fields(res);
+           while((row=mysql_fetch_row(res))){
+            for(int i=0; i<num_fields; i++){
+                printf("%s\t", row[i]?row[i]: "NULL");
+            }
+            printf("\n");
+        }
+
+
 }
 void checkDates(char k[]){
-	
+
 }
 void requestActivation(char k[]){
-	
-	
+
+char q[100];
+			char query_string[] = {"UPDATE student SET requestactivation='pending'  WHERE  usercode='%s' AND activationstatus ='deactivated' "};
+		sprintf(q, query_string,Stdusercode);
+		if (mysql_query(conn, q)) {
+
+			 finish_with_error(conn);
+
+
+		}
+    printf("activation request sent");
+
+}
+viewAssignment(char k[]){
+
 }
 
