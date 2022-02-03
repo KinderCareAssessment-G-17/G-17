@@ -1,21 +1,22 @@
 <?php 
-$Name= $_POST['pupilName'];
+$fName= $_POST['pupilfName'];
+$lName= $_POST['pupillName'];
+$TelNo=$_POST['ptelNo'];
 $pupilUserCode= $_POST['userCode'];
-$pupilStatus= $_POST['activationStatus'];
+$emailAddress= $_POST['emailAddress'];
 
-$con=new mysqli('localhost', 'root', '', 'pupilregistration');
+$con=new mysqli('localhost', 'root', '123@peter', 'kindercare');
 if (!$con){
     echo "Problem connecting the database.";
 }
 
-$qry="INSERT INTO `pupilregistration`(`Name`, `pupilUserCode`, `pupilStatus`) VALUES('$Name', '$pupilUserCode', $pupilStatus)";
+$qry="INSERT INTO pupilDetails(firstName, lastName, UserCode, TelNo, ActivationStatus) VALUES('$fName', '$lName', '$pupilUserCode', '$TelNo', 'Activated')";
 
 if($con->query($qry)===TRUE){
-    echo "Data inserted";
+    header("location:teacherdash.php");
 }
 else{
     echo "Problem while inserting data";
 }
 
 ?>
-

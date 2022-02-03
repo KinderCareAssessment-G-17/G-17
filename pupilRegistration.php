@@ -1,41 +1,22 @@
+<?php 
+$fName= $_POST['pupilfName'];
+$lName= $_POST['pupillName'];
+$TelNo=$_POST['ptelNo'];
+$pupilUserCode= $_POST['userCode'];
+$emailAddress= $_POST['emailAddress'];
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Pupil Registration Form</title>
-<link rel="stylesheet" type="text/css" href=""/>
-</head>
-
-<body>
-<h1>You can register your pupils here</h1>
-
- 
-//<?php
-if(isset($_SESSION['status']))
-{
-    echo "<h5>".$_SESSION['status']."</h5>";
-    unset($_SESSION['status']);
+$con=new mysqli('localhost', 'root', '', 'kindercare');
+if (!$con){
+    echo "Problem connecting the database.";
 }
-//?>
 
-Pupil details form:
-<section>
-<form action="pupilRegistrationp.php" method="POST">
-<label>Full Names</label><br>
-<input type="text" name="pupilName" maxlength="20"/><br>
-<label>userCode</label><br>
-<input type="text" name="userCode" maxlength="20"/><br>
-<label>Activation Status</label><br>
-<input type="checkbox" name="activationStatus"  value="activated" default="checked"/>Activated
-<label for="activated">Activated</label>
-<input type="checkbox" name="activationStatus"  value="deactivated" default="checked"/>Deactivated
-<label for="deactivated">Deactivated</label><br>
-<button type="submit" name="register">Register</button>
-</form>
-</section>
-<br><br>
-<!--<?php include('deleteMark.php');?>-->
+$qry="INSERT INTO pupildetails(firstName, lastName, UserCode, TelNo, ActivationStatus) VALUES('$fName', '$lName', '$pupilUserCode', '$TelNo', 'Activated')";
 
-</form>
-</body>
-</html>
+if($con->query($qry)===TRUE){
+    header("location:pupilRegistrationpage.php");
+}
+else{
+    echo "Problem while inserting data";
+}
+
+?>
