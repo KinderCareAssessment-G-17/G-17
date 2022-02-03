@@ -2,11 +2,10 @@
 <html>
 <head>
 <title>Pupil Registration</title>
-<link rel="stylesheet" type="text/css" href=""/>
+<link rel="stylesheet" type="text/css" >
 </head>
 
 <body style= "text-align:center;">
-
  
 <?php
 if(isset($_SESSION['status']))
@@ -16,16 +15,11 @@ if(isset($_SESSION['status']))
 }
 ?>
 
-<!--<h4>You can register your pupils here</h4><br/>-->
-
-
-
 <form action="pupilRegistrationp.php" method="POST">
-<img src="logo.png" width="90" height="90" class="logo1">
-<h2 class="header" >KINDERCARE<br> <h2>PUPIL REGISTRATION</h2></h2>
-<fieldset style="background-color:plum">
+<fieldset style="background-color:#c8d6e5;">
+<legend><h1>Pupil details form:</h1></legend><br/>
 
-<h1>Pupil  details  <br>form:</h1> 
+<h4>You can register your pupils here</h4><br/>
 
 <br/><br/><b><label>First name</label></b><br>
 <input type="text" name="pupilfName" maxlength="20" style="margin-bottom:10px;"/><br>
@@ -44,7 +38,6 @@ if(isset($_SESSION['status']))
 
 
 <button type="submit" name="register">Register</button><br><br>
-
 </fieldset>
 </form>
 <br><br>

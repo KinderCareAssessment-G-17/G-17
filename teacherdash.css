@@ -5,7 +5,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    color:black;
 }
 
 body{
@@ -13,7 +12,7 @@ body{
 }
 
 .wrapper .sidebar{
-    background: plum;
+    background: rgb(5, 68, 104);
     position: fixed;
     top: 0;
     left: 0;
@@ -37,21 +36,21 @@ body{
 }
 
 .wrapper .sidebar .profile h3{
-    color: #030000;
+    color: #ffffff;
     margin: 10px 0 5px;
 }
 
 .wrapper .sidebar .profile p{
-    color: rgb(1, 6, 8);
-    font-size: 14px;
+    color: rgb(206, 240, 253);
+    font-size: 15px;
 }
 
 .wrapper .sidebar ul li a{
     display: block;
     padding: 13px 30px;
-    border-bottom: 1px solid paleturquoise;
+    border-bottom: 1px solid #10558d;
     color: rgb(241, 237, 237);
-    font-size: 16px;
+    font-size: 17px;
     position: relative;
 }
 
@@ -63,15 +62,15 @@ body{
 
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
-    color:  plum;
+    color:  rgb(5, 68, 104);
 
     background:white;
-    border-right: 2px solid paleturquoise;
+    border-right: 2px solid rgb(5, 68, 104);
 }
 
 .wrapper .sidebar ul li a:hover .icon,
 .wrapper .sidebar ul li a.active .icon{
-    color:  plum;
+    color:  rgb(5, 68, 104);
 }
 
 .wrapper .sidebar ul li a:hover:before,
@@ -86,7 +85,7 @@ body{
 }
 
 .wrapper .section .top_navbar{
-    background:  plum;
+    background:  rgb(5, 68, 104);
     height: 50px;
     display: flex;
     align-items: center;
@@ -95,7 +94,7 @@ body{
 }
 
 .wrapper .section .top_navbar .ham a{
-    font-size: 28px;
+    font-size: 29px;
     color: #f4fbff;
 }
 
@@ -112,16 +111,13 @@ body.active .wrapper .section{
     width: 100%;
 }
 
-.section1, .section2, .section3, .section4,.section5 {
+.section1, .section2, .section3, .section4 {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: plumss;
+    color: rgb(5, 68, 104);
 }
 section:nth-child(odd){
     background: #c8d6e5;
-}
-.item{
-    color:rgb(22, 2, 22);
 }

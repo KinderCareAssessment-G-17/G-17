@@ -90,13 +90,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     
     </head>
     
-    <body>
+    <body style="background-color:#c8d6e5">
     <img src="logo.png" width="90" height="90" class="logo1">
 <p class="header2" ><b>KINDERCARE<br> Registration Form<b></p>
         <div class="header">
             
       <form action="TeacherReg.php" method="POST">
-     <fieldset style="background-color:plum">
+     <fieldset style="background-color:#c8d6e5;">
         <p style="color:black">Register</p>  
             <p>
                 <label for="firstname" id="fname">First Name</label><br>
