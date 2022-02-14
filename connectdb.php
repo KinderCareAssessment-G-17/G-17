@@ -1,7 +1,7 @@
 <?php
-$servername="127.0.0.1";
+$servername="localhost";
 $username="root";
-$password="123@peter";
+$password="";
 $databasename="kindercare";
 $dbc=mysqli_connect($servername,$username,$password,"$databasename");
 

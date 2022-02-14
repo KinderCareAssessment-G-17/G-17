@@ -1,23 +1,15 @@
-﻿<?php
-session_start();
+<?php
+include_once 'connectdb.php';
 
-require 'connectdb.php';
 
-if(isset($_POST['activate'])){
-       $UserCode=$_POST['UserCode'];
-       $sql="UPDATE pupildetails SET ActivationStatus = 'Activated' where UserCode='$UserCode'";
-       $query="Delete from activationrequests WHERE UserCode='$UserCode'";
+if(isset($_GET['UserCode'])){
+    $UserCode = $_GET['UserCode'];
+    
+    $sql = "UPDATE pupildetails SET ActivationStatus ='Activated' , requestactivation='Handled' WHERE UserCode='$UserCode' AND requestactivation ='pending'";
 
-       if(mysqli_query($dbc,$sql)){
-
-           if(mysqli_query($dbc,$query)){
-                $_SESSION['status']='Re-activation successful';
-                header("location:teacherdash.php");
-                    }
-                }
-                 else{
-                 echo('There was a problem.');
-     }
+    mysqli_query($dbc,$sql);
 }
 
- ?>
+header('location: teacherdash.php');
+?>
+

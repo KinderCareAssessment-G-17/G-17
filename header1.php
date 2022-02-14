@@ -38,7 +38,7 @@ form{
       border-radius: 10px;
       opacity: 0.7;
       font-size:xx-large;}
-       .main_div {
+.main_div {
  --color: #3992e6;
  position: relative;
  z-index: 1;
@@ -96,13 +96,13 @@ transition: 0.5s;
 }
 </style>
 <!--<link rel="stylesheet" type = "text/css"href="style.css">-->
-    <title>character draw</title>
+    <title>Login</title>
 </head>
 <body>
 <div class="header">
     <img src="logo.png">
-    <p style="color:black";> KINDERCARE </p>
-    <div class = "d3"> <a href="contact.php">CONTACT US</a>  
+    <p style="color:black"; > KINDERCARE </p>
+   <div class = "d3"> <a href="contact.php">CONTACT US</a>  
          <a href="contact.php">ABOUT</a>
     </div>
 </div>

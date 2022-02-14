@@ -1,19 +1,32 @@
 ﻿<?php
+include_once 'connectdb.php';
+/*session_start();
 
-session_start();
+if(isset($_POST['change']))
+{	 
+		$userCode = $_POST["UserCode"];
+            $sql = "UPDATE pupildetails set ActivationStatus = 'Deactivated' where userCode ='$userCode'";
+	
+            if (mysqli_query($dbc, $sql)) {
+                $_SESSION['changeStatus']="Pupil deactivated successfully";
+                header("Location:teacherdash.php"); 
+    
+            }
+            else {
+                $_SESSION['changeStatus']="Failed to deactivate pupil.";
+                header("Location:teacherdash.php"); 
+            }
+            mysqli_close($dbc);
+}*/
 
+if(isset($_GET['UserCode'])){
+    $UserCode = $_GET['UserCode'];
+    
+    $sql = "UPDATE pupildetails SET ActivationStatus ='Deactivated', requestactivation=NULL WHERE UserCode='$UserCode'";
 
-$connection= mysqli_connect('localhost', 'root', '', 'kindercare');
+    mysqli_query($dbc,$sql);
 
-if(isset($_POST['deactivate']))
-{
-    $pupil_to_deactivate= $_POST['pupil_to_deactivate'];
-    $query= "UPDATE pupildetails SET ActivationStatus='Deactivated' WHERE UserCode='$pupil_to_deactivate' ";
-    $query_run= mysqli_query($connection, $query);
-
-   if($query_run){
-       $_SESSION['status']= "Deactivation successful";
-       header("Location: teacherdash.php");
-                }
 }
+
+header('location: teacherdash.php');
 ?>
