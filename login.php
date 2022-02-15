@@ -1,7 +1,5 @@
 <?php
-    if (isset($_GET['err'])) {
-       echo "<script>alert('Login failed! Invalid ID or password!')</script>"; 
-      }
+   
 ?>
 <html>
     <head>
