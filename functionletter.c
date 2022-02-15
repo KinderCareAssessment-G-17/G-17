@@ -4,6 +4,91 @@ int i,j,k;
 int finalscore;
 time_t starttime,endtime,timetaken=0;
 
+void timing(char *end_time )
+{
+
+    //while(1)
+    //{
+            //delay(1);
+           // system("cls");
+
+         char str_deadline[9];
+
+                strcpy(str_deadline, end_time);
+
+                char str_deadlline_mins[5] , str_deadlline_hrs[5], str_deadlline_secs[5];
+                int  mins_now, mins_future,mins_rem, hrs_now, hrs_future,hrs_rem,secs_now,  secs_future, secs_rem;
+
+                int a = 0, b= 0, c = 0, i = 0;
+
+                 for(i = 0; i < 9; i++)
+                {
+
+                     if (i == 0 || i ==1)
+                        str_deadlline_hrs[a++] = str_deadline[i];
+
+                     if (i == 3 || i ==4)
+                        str_deadlline_mins[b++] = str_deadline[i];
+
+                     if (i == 6 || i ==7)
+                        str_deadlline_secs[c++] = str_deadline[i];
+
+                     else
+                        continue;
+
+                }
+
+                hrs_future = atoi(str_deadlline_hrs);
+                mins_future = atoi(str_deadlline_mins);
+                secs_future = atoi(str_deadlline_secs);
+
+                 struct tm *current_time ;
+                time_t  time_now = time(NULL);
+                 current_time = localtime(&time_now);
+
+                 hrs_now = current_time->tm_hour;
+                 mins_now =current_time->tm_min;
+                 secs_now = current_time->tm_sec;
+
+                if( secs_future - secs_now >= 0 )
+                secs_rem = secs_future - secs_now;
+
+                else if ( mins_future - mins_now  >=  0 )
+                {
+                     secs_rem = (secs_future + 60 )- secs_now;
+                    --mins_future;
+                }
+
+
+                else
+                {
+
+                    secs_rem = (secs_future + 60 )- secs_now;
+                    --hrs_future;
+                    mins_future += 59;
+                }
+
+
+
+                    if( mins_future - mins_now  >=  0 )
+                        mins_rem = mins_future - mins_now;
+                    else
+                    {
+                        mins_rem = (mins_future + 60) - mins_now;
+                        --hrs_future;
+                    }
+
+
+                        hrs_rem = hrs_future - hrs_now;
+
+
+                        printf("%d hrs %d mins %d secs.\n\n", hrs_rem, mins_rem, secs_rem);
+
+   // }
+
+
+}
+
 void enterT(char t[7][5]){
    printf(" _____ _____ _____ _____ _____\n");
    printf("|  %c  |  %c  |  %c  |  %c  |  %c  |\n",t[0][0],t[0][1],t[0][2],t[0][3],t[0][4]);
@@ -117,6 +202,7 @@ void enter( char k[7][4])
 
 
 void N(){
+printf("print letter N:\n");
 	char N[7][4]={
 		{'*',' ',' ','*' },
 		{'*',' ',' ','*' },
@@ -155,6 +241,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
 
    }
@@ -165,19 +258,21 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 
 
 }
 
 }
-printf(" the score of the student is: %d\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the score of the student is: %d \n\n",percentage);
+finalscore += percentage;
 timetaken+=(endtime-starttime);
 
 }
 void O(){
+    printf("Enter letter O:\n");
 		char N[7][4]={
 		{' ','*','*',' ' },
 		{'*',' ',' ','*' },
@@ -219,6 +314,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -228,18 +330,20 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 
 
 }
 
 }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 void p(){
+    printf("print letter P:\n");
 	char N[7][4]={
 		{'*','*','*',' ' },
 		{'*',' ',' ','*' },
@@ -280,6 +384,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
 
 
@@ -291,15 +402,16 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 
 
 }
 
 }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 
 
@@ -307,6 +419,7 @@ timetaken+=(endtime-starttime);
 
 }
 void Q(){
+    printf("print letter Q:\n");
 	char N[7][4]={
 		{' ','*','*',' ' },
 		{'*',' ',' ','*' },
@@ -346,6 +459,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -355,20 +475,22 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 
 
 }
 
 }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 
 
 }
 void U(){
+    printf("print letter U:\n");
 		char N[7][4]={
 		{'*',' ',' ','*' },
 		{'*',' ',' ','*' },
@@ -410,6 +532,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -419,20 +548,21 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 
 
 }
 
 }
-printf(" the score of the student is: %\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the score of the student is: %\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 
 void F(){
-
+printf("print letter F:\n");
 		char N[7][4]={
 		{'*','*','*','*' },
 		{'*',' ',' ',' ' },
@@ -474,6 +604,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -483,19 +620,21 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 
 
 }
 
 }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 
 void B(){
+    printf("print letter B:\n");
 	int score=0;
 	int c,d;
       char B[7][4]={
@@ -528,21 +667,31 @@ void B(){
               for( c=0;c<7;++c){
               for( d=0;d<4;d++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",c,d);
-        scanf("%s",&ans2[c][d]);}
+        scanf("%s",&ans2[c][d]);
+
+        if(ans2[c][d]=='1'){
+    ans2[c][d]='*';
+
+   }else if(ans2[c][d]=='0'){
+   ans2[c][d]=' ';
+   }}
         }
         endtime=time(NULL);
         enter( ans2);
     for(c=0;c<7;c++){
 	for(d=0;d<4;d++){
-		if(ans2[c][d]==m2[c][d])
+		if(ans2[c][d]==B[c][d])
           score++ ;  }
           }
-printf(" the score of the student is: %d\n\n",score);
-finalscore +=score;
+          int percentage= (score *100)/28 ;
+printf(" the score of the student is: %d\n\n",percentage);
+printf("\n\n The time left is :");timing("13:04:00");
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 
 void D(){
+    printf("print letter D:\n");
 	int e,f;
 	int score=0;
 	char D[7][4]={
@@ -574,21 +723,31 @@ void D(){
 			 for( e=0;e<7;++e){
              for( f=0;f<4;f++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",e,f);
-        scanf("%s",&ans3[e][f]);}
+        scanf("%s",&ans3[e][f]);
+
+        if(ans3[e][f]=='1'){
+    ans3[e][f]='*';
+
+   }else if(ans3[e][f]=='0'){
+   ans3[e][f]=' ';
+   }
+			 }
         }
         endtime=time(NULL);
         enter( ans3);
         for(e=0;e<7;e++){
 	for(f=0;f<4;f++){
-		if(ans3[e][f]==m3[e][f])
+		if(ans3[e][f]==D[e][f])
           score++ ;  }
           }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+          int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 
 void E(){
+    printf("print letter E:\n");
 	int g,h;
 	int score=0;
 	 char E[7][4]={
@@ -620,21 +779,31 @@ void E(){
 			 for( g=0;g<7;++g){
              for( h=0;h<4;h++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",g,h);
-        scanf("%s",&ans4[g][h]);}
+        scanf("%s",&ans4[g][h]);
+        if(ans4[g][h]=='1'){
+    ans4[g][h]='*';
+
+   }else if(ans4[g][h]=='0'){
+   ans4[g][h]=' ';
+   }
+
+        }
         }
         endtime=time(NULL);
         enter( ans4);
         for(g=0;g<7;g++){
 	    for(h=0;h<4;h++){
-		if(ans4[g][h]==m4[g][h])
+		if(ans4[g][h]==E[g][h])
           score++ ;  }
           }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+          int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 
 void C(){
+    printf("print letter c:\n");
 	int a,b;
 	int score=0;
 		char C[7][4]={
@@ -666,21 +835,31 @@ void C(){
              for( a=0;a<7;++a){
              for( b=0;b<4;b++){
         printf("Enter 0 or 1 at position ans[%d][%d]:",a,b);
-        scanf("%s",&ans1[a][b]);}
+        scanf("%s",&ans1[a][b]);
+        if(ans1[a][b]=='1'){
+    ans1[a][b]='*';
+
+   }else if(ans1[a][b]=='0'){
+   ans1[a][b]=' ';
+   }
+
+        }
         }
         endtime=time(NULL);
         enter( ans1);
 for(a=0;a<7;a++){
 	for(b=0;b<4;b++){
-		if(ans1[a][b]==m1[a][b])
+		if(ans1[a][b]==C[a][b])
           score++ ;  }
           }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+          int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken+=(endtime-starttime);
 }
 
 void G(){
+    printf("Enter letter G:\n");
 	char N[7][4]={
 		{' ',' ','*','*'},
 
@@ -726,6 +905,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -734,16 +920,18 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 }
 }
-printf(" the  score of the student is: %d\n\n",score);
-finalscore +=score;
+int percentage= (score *100)/28 ;
+printf(" the  score of the student is: %d\n\n",percentage);
+finalscore +=percentage;
 timetaken +=(endtime-starttime);
 		}
 
 void H(){
+    printf("enter letter H:\n");
 	char N[7][4]={
 		{'*',' ',' ','*' },
 
@@ -788,6 +976,12 @@ for( j=0;j<4;j++){
 
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
 
 }
    }
@@ -798,17 +992,18 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 					}
 				}
-
-		printf(" the  score of the student is: %d\n\n",score);
-		finalscore +=score;
+int percentage= (score *100)/28 ;
+		printf(" the  score of the student is: %d\n\n",percentage);
+		finalscore +=percentage;
 		timetaken+=(endtime-starttime);
 }
 
 void I(){
+    printf("enter letter I:\n");
 	char N[7][4]={
 		{'*','*','*','*' },
 
@@ -854,6 +1049,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -863,17 +1065,18 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 				}
 		}
-
-	printf(" the  score of the student is: %d\n\n",score);
-	finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf(" the  score of the student is: %d\n\n",percentage);
+	finalscore +=percentage;
 	timetaken+=(endtime-starttime);
 }
 
 void J(){
+    printf("enter letter J:\n");
 	char N[7][4]={
 		 {'*','*','*','*' },
 
@@ -919,6 +1122,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
    endtime=time(NULL);
@@ -927,16 +1137,18 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 					}
 			}
-		printf(" the  score of the student is: %\n\n",score);
-		finalscore +=score;
+			int percentage= (score *100)/28 ;
+		printf(" the  score of the student is: %\n\n",percentage);
+		finalscore +=percentage;
 		timetaken+=(endtime-starttime);
 }
 
 void K(){
+    printf("enter letter K:\n");
 	char N[7][4]={
 		{'*',' ',' ','*' },
 
@@ -982,6 +1194,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
   endtime=time(NULL);
@@ -991,16 +1210,18 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 				}
 		}
-	printf(" the  score of the student is: %d\n\n",score);
-	finalscore +=score;
+		int percentage= (score *100)/28 ;
+	printf(" the  score of the student is: %d\n\n",percentage);
+	finalscore +=percentage;
 	timetaken+=(endtime-starttime);
 }
 
 void L(){
+    printf("enter letter L:\n");
 	char N[7][4]={
 		{'*',' ',' ',' ' },
 
@@ -1046,6 +1267,13 @@ for( j=0;j<4;j++){
    printf("Enter 0 or 1 at position ans[%d][%d]:",i,j);
    scanf("%s",&ans[i][j]);
 
+   if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 }
    }
   endtime=time(NULL);
@@ -1054,15 +1282,17 @@ for( j=0;j<4;j++){
 int score=0;
 for(i=0;i<7;i++){
 	for(j=0;j<4;j++){
-		if(ans[i][j]==m[i][j])
+		if(ans[i][j]==N[i][j])
           score++ ;
 				}
 		}
-	printf(" the  score of the student is: %d\n\n",score);
-	finalscore +=score;
+		int percentage= (score *100)/28 ;
+	printf(" the  score of the student is: %d\n\n",percentage);
+	finalscore += percentage;
 	timetaken+=(endtime-starttime);
 }
  void S(){
+     printf("enter letter S:\n");
  	 char S[7][4] = {
         {' ','*','*','*' },
 		{'*',' ',' ',' ' },
@@ -1096,6 +1326,13 @@ for(i=0;i<7;i++){
         for(j = 0; j < 4; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
         }
     }
     endtime=time(NULL);
@@ -1104,17 +1341,19 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 7; i++){
         for(j = 0;j < 4; j++){
-            if(ans[i][j] == letter_S[i][j])
+            if(ans[i][j] == S[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
- 	finalscore+=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+ 	finalscore += percentage;
  	timetaken+=(endtime-starttime);
  }
 
  void T(){
+     printf("enter letter T:\n");
  	char T[7][5] = {
         {'*','*','*','*','*' },
 		{' ',' ','*',' ',' ' },
@@ -1148,6 +1387,13 @@ for(i=0;i<7;i++){
         for(j = 0; j < 5; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
         }
     }
     endtime=time(NULL);
@@ -1156,19 +1402,21 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 7; i++){
         for(j = 0;j < 5; j++){
-            if(ans[i][j] == letter_T[i][j])
+            if(ans[i][j] == T[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
-	finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+	finalscore += percentage;
     timetaken+=(endtime-starttime);
  }
 
 
 
  void V(){
+     printf("enter letter V:\n");
  	char V[4][7] = {
         {'*',' ',' ',' ',' ',' ','*' },
 		{' ','*',' ',' ',' ','*',' ' },
@@ -1198,6 +1446,13 @@ for(i=0;i<7;i++){
         for(j = 0; j < 7; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
         }
     }
     endtime=time(NULL);
@@ -1206,16 +1461,18 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 4; i++){
         for(j = 0;j < 7; j++){
-            if(ans[i][j] == letter_V[i][j])
+            if(ans[i][j] == V[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
-	finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+	finalscore += percentage;
 	timetaken+=(endtime-starttime);
  }
   void W(){
+      printf("enter letter W:\n");
   	char W[3][7] = {
         {'*',' ',' ',' ',' ',' ','*' },
 		{' ','*',' ','*',' ','*',' ' },
@@ -1246,6 +1503,13 @@ for(i=0;i<7;i++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
 
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
+
 
         }
     }
@@ -1255,17 +1519,19 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 3; i++){
         for(j = 0;j < 7; j++){
-            if(ans[i][j] == letter_W[i][j])
+            if(ans[i][j] == W[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
-    finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+    finalscore += percentage;
     timetaken+=(endtime-starttime);
   }
 
   void X(){
+      printf("enter letter X:\n");
   	    char X[5][5] = {
         {'*',' ',' ',' ','*' },
 		{' ','*',' ','*',' ' },
@@ -1296,6 +1562,13 @@ for(i=0;i<7;i++){
         for(j = 0; j < 5; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
         }
     }
     endtime=time(NULL);
@@ -1304,17 +1577,19 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 5; i++){
         for(j = 0;j < 5; j++){
-            if(ans[i][j] == letter_X[i][j])
+            if(ans[i][j] == X[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
-	finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+	finalscore += percentage;
 	timetaken+=(endtime-starttime);
   }
 
   void Y(){
+      printf("enter letter Y:\n");
   	char Y[7][5] = {
         {'*',' ',' ',' ','*' },
 		{' ','*',' ','*',' ' },
@@ -1348,6 +1623,13 @@ for(i=0;i<7;i++){
         for(j = 0; j < 5; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
         }
     }
     endtime=time(NULL);
@@ -1356,17 +1638,19 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 7; i++){
         for(j = 0;j < 5; j++){
-            if(ans[i][j] == letter_Y[i][j])
+            if(ans[i][j] ==Y[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
-	finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+	finalscore +=percentage;
 	timetaken+=(endtime-starttime);
   }
 
   void Z(){
+      printf("enter letter Z:\n");
   	char Z[5][5] = {
         {'*','*','*','*','*' },
 		{' ',' ',' ','*',' ' },
@@ -1397,6 +1681,13 @@ for(i=0;i<7;i++){
         for(j = 0; j < 5; j++){
             printf("Enter 0 or 1 at position ans[%d][%d];",i,j);
             scanf("%s", &ans[i][j]);
+
+            if(ans[i][j]=='1'){
+    ans[i][j]='*';
+
+   }else if(ans[i][j]=='0'){
+   ans[i][j]=' ';
+   }
         }
     }
     endtime=time(NULL);
@@ -1405,12 +1696,13 @@ for(i=0;i<7;i++){
     int score = 0;
     for(i = 0; i < 5; i++){
         for(j = 0;j < 5; j++){
-            if(ans[i][j] == letter_Z[i][j])
+            if(ans[i][j] ==Z[i][j])
                 score++;
 
         }
     }
-	printf("The  score of the student is: %d\n\n", score);
-	finalscore +=score;
+    int percentage= (score *100)/28 ;
+	printf("The  score of the student is: %d\n\n", percentage);
+	finalscore += percentage;
 	timetaken+=(endtime-starttime);
   }
