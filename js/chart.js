@@ -1,13 +1,13 @@
 $(function() {
   $.ajax({
-    url: "http://localhost/KINDERCARE/chartdata.php",
+    url: "http://localhost/kindercareassessment/chartdata.php",
     type: "GET",
     success: function(data) {
       chartData = data;
       var chartProperties = {
-        caption: "",
-        xAxisName: "",
-        yAxisName: "",
+        caption: "REPORT",
+        xAxisName: "Assignment",
+        yAxisName: "Average score",
         rotatevalues: "1",
         theme: "zune"
       };

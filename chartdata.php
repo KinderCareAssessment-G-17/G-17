@@ -1,7 +1,7 @@
 <?php
 include('connectdb.php');
 
-$query = "SELECT assignment_no, start_date FROM assignments WHERE status='not attempted'";
+$query = "SELECT assignment_no, score FROM submittedassignments";
 $result = $dbc->query($query);
 
 //initialise the array to store processed data
@@ -11,8 +11,8 @@ if($result->num_rows > 0){
     //converting results into an associative array
     while($row = $result->fetch_assoc()){
         $jsonarrayitem = array();
-        $jsonarrayitem['label'] = $row['start_date'];
-        $jsonarrayitem['value'] = $row['assignment_no'];
+        $jsonarrayitem['label'] = $row['assignment_no'];
+        $jsonarrayitem['value'] = $row['score'];
         //append the above created object into the main array
         array_push($jsonarray, $jsonarrayitem);
     }
