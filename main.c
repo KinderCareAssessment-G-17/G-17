@@ -75,13 +75,14 @@ int main(){
            COM:
 				printf("\n\nEnter the following commands to continue:\n\n");
 				printf("1.VIEWALL\t\t\t\t\t\t");printf("display assignment number,date,and attempt status\n");
-				printf("2.ATTEMPTASSIGNMENT\t\t\t\t\t");printf("display assignment number,date,and attempt status\n");
+				printf("2.ATTEMPTASSIGNMENT\t\t\t\t\t");printf("Enables pupil to attempt an assignment \n");
 				printf("3.CHECKSTATUS\t\t\t\t\t\t");printf("displays status report of pupil summarizing all assignments\n");
 				printf("4.VIEWASSIGNMENT <assignmentID>\t\t\t\t");printf("see details of a specified assignment\n");
 				printf("5.CHECKDATES <datefrom><dateto>\t\t\t\t");printf("shows if there is an assignment within a specifc date range\n");
 				printf("6.REQUESTACTIVATION\t\t\t\t\t");printf("used to request for activation by pupil\n");
 				printf("7.VIEWACTIVATIONSTATUS\t\t\t\t\t");printf("used to view if the student is activated\n");
-				printf("8.LOGOUT\t\t\t\t\t\t");printf("used by a student to logout\n\n");
+				printf("7.VIEWCOMMENT\t\t\t\t\t\t");printf("used by pupil to view teacher comments on assignment\n");
+				printf("9.LOGOUT\t\t\t\t\t\t");printf("used by a student to logout\n\n");
 
 
 
@@ -97,10 +98,12 @@ int main(){
 			}
 			else if(strcmp(command,"ATTEMPTASSIGNMENT")==0){
 				attemptAssignment(command);
+				fflush(stdin);
 				goto COM;
 			}
 			else if(strcmp(command,"CHECKSTATUS")==0){
 				checkstatus(command);
+				fflush(stdin);
 				goto COM;
 			}
 			else if(strncmp(command,"VIEWASSIGNMENT",14)==0){
@@ -108,6 +111,7 @@ int main(){
                     char *str2=strtok(NULL," ");
 
 				viewAssignment(str2);
+				fflush(stdin);
 				goto COM;
 			}
 			else if(strncmp(command,"CHECKDATES",10)==0){
@@ -116,15 +120,24 @@ int main(){
             char *part3=strtok(NULL," ");
 
 				checkDates(part2,part3);
+				fflush(stdin);
 				goto COM;
 
 
 			}
 			else if(strcmp(command,"REQUESTACTIVATION")==0){
 				requestActivation(command);
+				fflush(stdin);
 				goto COM;
 
-			}else if(strcmp(command,"VIEWACTIVATIONSTATUS")==0){
+			}
+			else if(strcmp(command,"VIEWCOMMENT")==0){
+				viewcomment(command);
+				fflush(stdin);
+				goto COM;
+
+			}
+			else if(strcmp(command,"VIEWACTIVATIONSTATUS")==0){
 				viewactivationstatus(command);
 				goto COM;
 				}

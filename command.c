@@ -15,6 +15,7 @@
      char q[1000];
      char r[1000];
      char b[1000];
+     char s[1000];
 
 char Stdusercode[200];
 
@@ -73,7 +74,7 @@ void attemptAssignment(char k[]){
     int length=0;
 	char letter[length];
 
-	/*char hours[5], minutes[5],seconds[5],year[10],month[5],day[5];
+	char hours[5], minutes[5],seconds[5],year[10],month[5],day[5];
 	time_t now;
 	char endTime[10];
 	time(&now);
@@ -124,8 +125,9 @@ void attemptAssignment(char k[]){
     if(row==NULL){
         printf("\nASSIGNMENT EXPIRED\n\n");
              goto START;
-    }*/
-				char query_string[] = {"SELECT characters FROM assignments WHERE   assignment_no='%s'    "};
+    }else{
+
+        char query_string[] = {"SELECT characters FROM assignments WHERE assignment_no='%s'    "};
 		sprintf(q, query_string,assNo);
 		if (mysql_query(conn, q)) {
 
@@ -142,7 +144,6 @@ void attemptAssignment(char k[]){
             finish_with_error(conn);
 
 		}
-
 		int num_fields=mysql_num_fields(res);
            while((row=mysql_fetch_row(res))){
 
@@ -211,6 +212,15 @@ switch(letter[i]){
 	case 'S'   :S();
 
 	             break;
+    case 'R'   :R();
+
+	             break;
+	 case 'A'   :A();
+
+	             break;
+	 case 'M'   :M();
+
+	             break;
 	case 'X'   :X();
 	             break;
 	case 'Y'   :Y();
@@ -234,7 +244,7 @@ char w[100];
 		}
 
 
-		}else{
+		}}else{
 		printf("assignment already attempted\n");
 		goto START;
 
@@ -363,7 +373,7 @@ void checkstatus(char k[]){
 
          float missed= 100-(attempted);
 
-         printf("The percentage of assignments missed is: %f\n",missed);
+         printf("The percentage of assignments not attempted is: %f\n",missed);
 
 
 
@@ -394,7 +404,7 @@ void viewALL(char k[]){
         }*/
 
 
-
+printf("ass_no startdate  status");
 
         char date[30], assignmentId[30];
      char query_string[] = {"SELECT assignment_no,start_date,end_date FROM assignments "};
@@ -509,5 +519,39 @@ viewAssignment(char *assignmentNo){
 
 
 
+}
+
+void viewcomment(char *k){
+
+        char assignmentNo[20];
+        char q[100];
+        printf("enter assignment No:");
+        scanf("%s",assignmentNo);
+char query_string[] = {"SELECT comment FROM submittedassignments WHERE assignment_no='%s' AND  UserCode='%s'   "};
+sprintf(q, query_string,assignmentNo,Stdusercode);
+if (mysql_query(conn, q)) {
+
+finish_with_error(conn);
+
+
+}
+res=mysql_store_result(conn);
+
+if(res==NULL){
+
+            finish_with_error(conn);
+
+}
+
+int num_fields=mysql_num_fields(res);
+           while((row=mysql_fetch_row(res))){
+            for(int i=0; i<num_fields; i++){
+                printf("\n%s\t", row[i]?row[i]: "NULL");
+
+            }
+
+            printf("\n");
+
+}
 }
 
